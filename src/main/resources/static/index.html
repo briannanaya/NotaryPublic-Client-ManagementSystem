@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Notary Client Management</h1>
+
+        <form id="getClientByLastNameForm">
+            <h2>Get Client by Last Name</h2>
+            <input type="text" id="clientLName" placeholder="Client Last Name" required>
+            <button type="submit">Get Client</button>
+        </form>
+        <div id="clientByLastNameResult"></div>
+
+
+        <form id="createClientForm">
+            <h2>Create New Client</h2>
+            <input type="text" id="clientFirstName" placeholder="First Name" required>
+            <input type="text" id="clientLastName" placeholder="Last Name" required>
+            <input type="email" id="clientEmail" placeholder="Email" required>
+            <input type="text" id="clientPhoneNum" placeholder="Phone Number" required>
+            <input type="text" id="clientService" placeholder="Service" required>
+            <button type="submit">Create Client</button>
+        </form>
+        <div id="createResult"></div>
+    </div>
+    <script>
+        document.getElementById('getClientByLastNameForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const lastName = document.getElementById('clientLName').value;
+            fetch(`http://localhost:8080/clients/byLastName/${lastName}`)
+                .then(response => response.json())
+                .then(data => {
+                   if(Array.isArray(data) && data.length > 0){
+                   let html = '<ul>'; 
+                    data.forEach(client => {
+                        html += `<li>First Name: ${client.clientFirstName}, Last Name: ${client.clientLastName}, Phone: ${client.clientPhoneNum}, Email: ${client.clientEmail}, Service: ${client.clientService}</li>`;
+                    });
+                    html +='</ul>'
+                    document.getElementById('clientByLastNameResult').innerHTML = html;
+                    } else {
+                        document.getElementById('clientByLastNameResult').innerText = 'No clients found with the provided last name.';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('clientByLastNameResult').innerText = 'No client found with the provided last name. ';
+                }); 
+        });
+    
+        // Existing code for handling client creation by ID
+        document.getElementById('createClientForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const client = {
+                clientFirstName: document.getElementById('clientFirstName').value,
+                clientLastName: document.getElementById('clientLastName').value,
+                clientEmail: document.getElementById('clientEmail').value,
+                clientPhoneNum: document.getElementById('clientPhoneNum').value
+            };
+    
+            fetch('http://localhost:8080/clients', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(client)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('createResult').innerText = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    document.getElementById('createResult').innerText = 'Error: ' + error;
+                });
+        });
+    </script>
+</body>
+</html>
