@@ -1,7 +1,6 @@
 ## Notary Public Management System
 Project Overview
 
-## Video Overview
 
 [Watch the Video Overview]([https://www.loom.com/share/7dfa770fc7194096a9a6205dc084b61a?sid=4f388b6b-71a8-4242-aa01-ba84396de5e1])
 
