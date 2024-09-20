@@ -1,7 +1,10 @@
 ## Notary Public Management System
 Project Overview
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/7dfa770fc7194096a9a6205dc084b61a?sid=a3f6091a-0337-4512-90cd-13a71b6e83fb" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+## Video Overview
+
+[Watch the Video Overview]([https://www.loom.com/share/7dfa770fc7194096a9a6205dc084b61a?sid=4f388b6b-71a8-4242-aa01-ba84396de5e1])
+
 
 The Notary Public Management System is a web-based application designed for notary publics to effectively manage their clientele and maintain detailed records of client contact information. This project aims to streamline the process of client management, enabling notaries to efficiently handle client data, including names, email addresses, phone numbers, and services offered.
 
