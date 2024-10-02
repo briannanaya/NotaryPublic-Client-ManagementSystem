@@ -84,7 +84,7 @@ You'll also need Java JDK 17 or higher and MySQL Workbench installed.
 Clone and install the project dependencies:
 
 ```bash
-  git clone https://github.com/briannanaya/notary_public_client_management.git
+  git clone https://github.com/briannanaya/NotaryPublic-Client-ManagementSystem.git
   cd notary_public_client_management
   mvn clean install
 ```
