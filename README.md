@@ -104,8 +104,8 @@ To run tests, run the following command
 Clone the project and move to the project directory:
 
 ```bash
-  git clone https://github.com/briannanaya/notary_public_client_management.git
-  cd notary_public_client_management
+  git clone https://github.com/briannanaya/NotaryPublic-Client-ManagementSystem.git
+  cd NotaryPublic-Client-ManagementSystem
 ```
 
 Install the dependencies:
