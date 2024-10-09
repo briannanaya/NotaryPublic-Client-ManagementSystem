@@ -19,7 +19,7 @@ import com.notary.client_management.service.ClientService;
 @RestController
 @RequestMapping("/clients")
 public class ClientController {
-
+    //define endpoints that handle http request
     @Autowired
     private ClientService clientService;
 
@@ -28,7 +28,7 @@ public class ClientController {
         return clientService.getAllClients();
     }
 
-    @GetMapping("/byLastName/{lastName}")
+    @GetMapping("/byLastName/{lastName}") //fetch resources
     public ResponseEntity<List<Client>> getClientsByLastName(@PathVariable String lastName) {
         List<Client> clients = clientService.getClientsByLastName(lastName);
         if (clients.isEmpty()) {
@@ -37,7 +37,7 @@ public class ClientController {
         return ResponseEntity.ok(clients);
     }
 
-    @PostMapping
+    @PostMapping 
     public ResponseEntity<Client> createClient(@RequestBody Client client) {
         Client savedClient = clientService.saveClient(client);
         return new ResponseEntity<>(savedClient, HttpStatus.CREATED);

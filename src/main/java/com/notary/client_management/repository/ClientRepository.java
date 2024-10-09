@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.notary.client_management.model.Client;
 
 @Repository
-public interface ClientRepository extends JpaRepository<Client, Long> {
+public interface ClientRepository extends JpaRepository<Client, Long> { //has built in CRUD operations
 
     public List<Client> findByClientLastName(String lastName);
 

@@ -18,7 +18,6 @@ public class Client {
     private String clientPhoneNum;
     private String clientService;
 
-    // Default constructor
     public Client() {
     }
 
