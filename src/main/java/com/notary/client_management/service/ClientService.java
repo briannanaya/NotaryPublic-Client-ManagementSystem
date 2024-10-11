@@ -10,7 +10,7 @@ import com.notary.client_management.model.Client;
 import com.notary.client_management.repository.ClientRepository;
 
 @Service
-public class ClientService {
+public class ClientService { //handles db 
 
     @Autowired
     private ClientRepository clientRepository;
